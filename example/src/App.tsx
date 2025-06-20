@@ -1,5 +1,5 @@
 import { View, StyleSheet } from 'react-native';
-import { AMapView } from 'react-native-amap-foundation';
+import { AMapView } from 'rn-amap';
 import { amapProps } from './config';
 
 export default function App() {
