@@ -2,15 +2,6 @@ import codegenNativeComponent from 'react-native/Libraries/Utilities/codegenNati
 import type { ViewProps } from 'react-native';
 import type { Double, Int32 } from 'react-native/Libraries/Types/CodegenTypes';
 
-export enum PinColor {
-  /** 红色大头针 */
-  PinColorRed,
-  /** 绿色大头针 */
-  PinColorGreen,
-  /** 紫色大头针 */
-  PinColorPurple,
-}
-
 export interface AMapProps {
   title: string;
   subTitle: string;
@@ -24,7 +15,7 @@ export interface AMapProps {
   draggable: boolean;
   /** 0代表中文，1代表英文 */
   language: Int32;
-  /** @see PinColor */
+  /** 0=红色大头针, 1=绿色大头针, 2=紫色大头针 */
   pinColor: Int32;
   apiKey: string;
 }

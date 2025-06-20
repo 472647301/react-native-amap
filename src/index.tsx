@@ -1,17 +1,15 @@
 import AMapFoundationView from './AmapFoundationViewNativeComponent';
 import type { AmapFoundationViewProps } from './AmapFoundationViewNativeComponent';
 import type { AMapProps } from './AmapFoundationViewNativeComponent';
-import { PinColor } from './AmapFoundationViewNativeComponent';
 
 export interface AMapViewProps extends Omit<AmapFoundationViewProps, 'amap'> {
   amap: Partial<AMapProps>;
 }
 
-export { PinColor };
 export type { AMapProps };
 
 export const AMapView = (props: AMapViewProps) => {
-  const amap = {
+  const amap: AMapProps = {
     title: '',
     subTitle: '',
     latitude: 0,
@@ -19,7 +17,7 @@ export const AMapView = (props: AMapViewProps) => {
     canShowCallout: true,
     animatesDrop: true,
     draggable: true,
-    pinColor: PinColor.PinColorRed,
+    pinColor: 0,
     language: 0,
     apiKey: '',
     ...props.amap,

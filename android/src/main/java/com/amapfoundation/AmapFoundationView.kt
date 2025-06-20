@@ -1,15 +1,26 @@
 package com.amapfoundation
 
-import android.content.Context
-import android.util.AttributeSet
+import android.annotation.SuppressLint
 import android.view.View
+import com.amap.api.maps.TextureMapView
+import com.facebook.react.uimanager.ThemedReactContext
 
-class AmapFoundationView : View {
-  constructor(context: Context?) : super(context)
-  constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
-  constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(
-    context,
-    attrs,
-    defStyleAttr
-  )
+@SuppressLint("ViewConstructor")
+class AmapFoundationView(context: ThemedReactContext) : TextureMapView(context) {
+
+  init {
+    super.onCreate(null)
+  }
+
+  fun add(child: View) {
+    if (child is Overlay) {
+      child.add(map)
+    }
+  }
+
+  fun remove(child: View) {
+    if (child is Overlay) {
+      child.remove()
+    }
+  }
 }

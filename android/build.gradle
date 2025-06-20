@@ -25,6 +25,11 @@ def getExtOrIntegerDefault(name) {
   return rootProject.ext.has(name) ? rootProject.ext.get(name) : (project.properties["AmapFoundation_" + name]).toInteger()
 }
 
+def reactNativeArchitectures() {
+  def value = project.getProperties().get("reactNativeArchitectures")
+  return value ? value.split(",") : ["armeabi-v7a", "x86", "x86_64", "arm64-v8a"]
+}
+
 android {
   namespace "com.amapfoundation"
 
@@ -33,6 +38,11 @@ android {
   defaultConfig {
     minSdkVersion getExtOrIntegerDefault("minSdkVersion")
     targetSdkVersion getExtOrIntegerDefault("targetSdkVersion")
+
+    ndk {
+        //noinspection ChromeOsAbiSupport
+        abiFilters (*reactNativeArchitectures())
+    }
   }
 
   buildFeatures {
@@ -74,6 +84,7 @@ def kotlin_version = getExtOrDefault("kotlinVersion")
 dependencies {
   implementation "com.facebook.react:react-android"
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+  implementation 'com.amap.api:3dmap:10.0.600'
 }
 
 react {
