@@ -1,5 +1,5 @@
 {
-  "name": "react-native-amap-foundation",
+  "name": "rn-amap",
   "version": "0.1.0",
   "description": "rn amap",
   "main": "./lib/module/index.js",
