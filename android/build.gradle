@@ -72,6 +72,12 @@ android {
       ]
     }
   }
+
+  packagingOptions {
+    jniLibs {
+      useLegacyPackaging true
+    }
+  }
 }
 
 repositories {
@@ -84,7 +90,7 @@ def kotlin_version = getExtOrDefault("kotlinVersion")
 dependencies {
   implementation "com.facebook.react:react-android"
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-  implementation 'com.amap.api:3dmap:10.0.600'
+  implementation 'com.amap.api:3dmap-location-search:10.1.600_loc6.5.1_sea9.7.4'
 }
 
 react {
